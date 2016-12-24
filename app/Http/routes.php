@@ -18,8 +18,18 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function(){
+
+	//Rutas del Usuario
 	Route::resource('users', 'UsersController');
 
 	Route::get('users/{id}/destroy', ['uses' => 'UsersController@destroy',
 	'as' => 'admin.users.destroy']);
+
+
+//Rutas de categorias
+	Route::resource('categories', 'CategoriesController');
+	Route::get('categories/{id}/destroy', ['uses' => 'categoriesController@destroy',
+	'as' => 'admin.categories.destroy']);
+
 });
+
