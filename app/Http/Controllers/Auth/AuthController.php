@@ -33,6 +33,10 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
+
+    protected $redirectPath = '/admin';
+
+    protected $loginPath = '/admin/auth/login';
     /**
      * Get a validator for an incoming registration request.
      *
@@ -41,6 +45,7 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
+    
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
@@ -62,4 +67,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    protected function getLogin()
+    {
+        return view('admin.auth.login');
+    }
+
 }

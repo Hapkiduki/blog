@@ -17,13 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	//Rutas del Usuario
 	Route::resource('users', 'UsersController');
 
-	Route::get('users/{id}/destroy', ['uses' => 'UsersController@destroy',
-	'as' => 'admin.users.destroy']);
 
 
 //Rutas de categorias
@@ -33,3 +31,20 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
+Route::get('admin/auth/login', [
+	'uses' => 'Auth\AuthController@getLogin',
+	'as' => 'admin.auth.login'
+	]);
+
+Route::post('admin/auth/login', [
+	'uses' => 'Auth\AuthController@postLogin',
+	'as' => 'admin.auth.login'
+	]);
+
+Route::get('admin/auth/logout', [
+	'uses' => 'Auth\AuthController@getLogout',
+	'as' => 'admin.auth.logout'
+	]);
+
+
+	
