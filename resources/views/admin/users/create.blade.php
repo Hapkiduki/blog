@@ -12,7 +12,7 @@
 
 		<div class="form-group">
 			{!!  Form::label('email', 'Correo Electrónico') !!}
-			{!!  Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Example@gmail.com', 'required']) !!}
+			{!!  Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Example@mail.com', 'required']) !!}
 		</div>
 
 		<div class="form-group">
@@ -22,7 +22,7 @@
 
 		<div class="form-group">
 			{!!  Form::label('type', 'Tipo') !!}
-			{!!  Form::select('type', ['' => '[Seleccione un nivel..]', 'member' => 'Miembro', 'admin' => 'Administrador'],null, ['class' => 'form-control']) !!}
+			{!!  Form::select('type', ['member' => 'Miembro', 'admin' => 'Administrador'],null, ['class' => 'form-control', 'placeholder' => '[Seleccione una opción..]', 'required']) !!}
 		</div>
 
 		<div class="form-group">

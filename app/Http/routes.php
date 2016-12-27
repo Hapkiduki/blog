@@ -29,7 +29,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::get('categories/{id}/destroy', ['uses' => 'categoriesController@destroy',
 	'as' => 'admin.categories.destroy']);
 
+
+
+
+//Rutas de tags
+	Route::resource('tags', 'TagsController');
+	Route::get('tags/{id}/destroy', ['uses' => 'TagsController@destroy',
+	'as' => 'admin.tags.destroy']);
+
 });
+
 
 Route::get('admin/auth/login', [
 	'uses' => 'Auth\AuthController@getLogin',
