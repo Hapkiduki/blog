@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<title>@yield('title', 'Default')| Panel de Administración</title>
 		<link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+		<link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}" type="text/css">
+		<link rel="stylesheet" href="{{ asset('plugins/trumbowyg/ui/trumbowyg.min.css') }}">
 	</head>
 	<body>
 
@@ -41,7 +43,13 @@
 			</div>
 		
 		</section>
-		<script src="{{ asset('plugins/jquery/js/jquery-3.1.1.slim.js') }}"></script>
+		
 		<script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
+		<script src="{{ asset('plugins/jquery/js/jquery.slim.js') }}"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
+		<script src="{{ asset('plugins/trumbowyg/trumbowyg.js') }}"></script>
+
+		@yield('js')
 	</body>
 	</html>

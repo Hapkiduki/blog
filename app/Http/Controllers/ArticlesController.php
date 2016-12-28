@@ -11,6 +11,7 @@ use App\Tag;
 use App\Article;
 use App\Image;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Request\ArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -42,7 +43,7 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
         //Manipulacion de imagenes
         if ($request->file('image')) {
