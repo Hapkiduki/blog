@@ -11,7 +11,7 @@ use App\Tag;
 use App\Article;
 use App\Image;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Request\ArticleRequest;
+use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -20,9 +20,15 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
-        return view('admin.articles.index');
+    	$articles = Article::search($request->title)->orderBy('id', 'DESC')->paginate(5);
+    	$articles->each(function($articles){
+    		$articles->category;
+    		$articles->user;
+    	});
+
+        return view('admin.articles.index')->with('articles', $articles);
     }
 
     /**
