@@ -96,7 +96,17 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        $article->category;
+        $categories = Category::orderBy('name', 'DESC')->lists('name', 'id');
+        $tags = Tag::orderBy('name', 'DESC')->lists('name', 'id');
+        $my_tags= $article->tags->lists('id')->ToArray();
+        return view('admin.articles.edit')
+            ->with('categories', $categories)
+            ->with('article', $article)
+            ->with('tags', $tags)
+            ->with('my_tags', $my_tags);
+
     }
 
     /**
