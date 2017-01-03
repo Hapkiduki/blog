@@ -13,14 +13,30 @@
 
 //Existen rutas de tipo GET, PUT, POST, DELETE, RESORCE
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Rutas del Frontend
+Route::get('/', ['as' => 'front.index',
+	'uses' => 'FrontController@index'
+]);
+
+
+
+
+//rutas del panel de administración
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	//Rutas del Usuario
-	Route::resource('users', 'UsersController');
+
+Route::get('/', ['as' => 'admin.index', function () {
+    return view('admin.index');
+}]);
+
+
+Route::resource('users', 'UsersController');
+Route::get('users/{id}/destroy',[
+	'uses' => 'UsersController@destroy', 
+	'as' => 'admin.users.destroy'
+	]);
 
 
 
@@ -39,8 +55,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 //Rutas de Articulos
 	Route::resource('articles', 'ArticlesController');
-	Route::get('Articles/{id}/destroy', ['uses' => 'ArticlesController@destroy',
-	'as' => 'admin.Articles.destroy']);
+	Route::get('articles/{id}/destroy', ['uses' => 'ArticlesController@destroy',
+	'as' => 'admin.articles.destroy']);
+
+	Route::get('images', ['uses' => 'ImagesController@index',
+	'as' => 'admin.images.index']);
 
 });
 

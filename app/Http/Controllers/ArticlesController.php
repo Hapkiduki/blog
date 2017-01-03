@@ -118,7 +118,14 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $article = Article::find($id);
+       $article->fill($request->all());
+       $article->save();
+
+       $article->tags()->sync($request->tags);
+       flash('El articulo '. $article->title. ' ha sido actualizado de forma exitosa!', 'warning');
+       return redirect()->route("admin.articles.index");
+    
     }
 
     /**
@@ -129,6 +136,9 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        flash('El articulo '. $article->title. ' ha sido borrado de forma exitosa!', 'warning');
+        return redirect()->route("admin.articles.index");
     }
 }

@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{!!  Form::open(['route' => ['admin.articles.update', $article], 'method' => 'PUT', 'files' => true]) !!}
+	{!!  Form::open(['route' => ['admin.articles.update', $article], 'method' => 'PUT']) !!}
 		<div class="form-group">
 			{!!  Form::label('title', 'Titulo') !!}
 			{!!  Form::text('title', $article->title, ['class' => 'form-control', 'placeholder' => 'Titulo del artículo..', 'required']) !!}
@@ -27,7 +27,7 @@
 
 
 		<div class="form-group">
-			{!! Form::submit('Agregar articulo', ['class' => 'btn btn-primary']) !!}
+			{!! Form::submit('Modificar articulo', ['class' => 'btn btn-primary']) !!}
 		</div>
 
 	{!!  Form::close() !!}

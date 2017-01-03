@@ -80,7 +80,7 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tag = Tag::find($id);
+       $tag = Tag::find($id);
        $tag->fill($request->all());
        $tag->save();
        flash('El tag '. $tag->name. ' ha sido actualizado de forma exitosa!', 'warning');
@@ -96,7 +96,7 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-          $tag = tag::find($id);
+        $tag = tag::find($id);
         $tag->delete();
         flash('El tag '. $tag->name. ' ha sido borrado de forma exitosa!', 'warning');
         return redirect()->route("admin.tags.index");
