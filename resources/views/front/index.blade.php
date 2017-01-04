@@ -20,7 +20,7 @@
 							</a>
 							<h4 class="text-center">{{$article->title}}</h4>
 							<hr>
-							<i class="fa fa-folder-open-o"></i> <a href="">{{ $article->category->name }}</a>
+							<i class="fa fa-folder-open-o"></i> <a href="{{ route('front.search.category', $article->category->name) }}">{{ $article->category->name }}</a>
 							<div class="pull-right">
 								<i class="fa fa-clock-o"></i> {{ $article->created_at->diffForHumans() }}
 							</div>
@@ -35,32 +35,8 @@
 				</div>
 
 				<div class="col-md-4 aside">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h3 class="panel-title">Categorias</h3>
-						</div>
-						<div class="panel-body">
-							<ul class="list-group">
-								<li class="list-group-item">
-									<span class="badge">14</span>
-									Noticias
-								</li>
-								<li class="list-group-item">
-									<span class="badge">2</span>
-									Programación
-								</li>
-								<li class="list-group-item">
-									<span class="badge">1</span>
-									Tips
-								</li>
-							</ul>
-						</div>
-					</div>
+					@include('front.partials.aside')
 				</div>
-
-
 			</div>
-		</div>
-
-	</div>
+		
 	@endsection
