@@ -1,3 +1,24 @@
-body{
-	background-color: green;
+.panel-title{
+	font-weight: bold;
+
 }
+
+.title-front{
+	font-weight: bold;
+	font-family: fantasy;
+}
+
+
+.img-article{
+	min-height: 300px;
+	max-height: 300px;
+}
+
+.link-enlace{
+	color: white;
+}
+
+.link-enlace:hover{
+	color: white;
+}
+

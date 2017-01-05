@@ -59,4 +59,14 @@ class FrontController extends Controller
     return view('front.index')
         ->with('articles', $articles);   
     }
+
+     public function viewArticle($slug)
+    {
+        $article = Article::findBySlugOrFail($slug);
+        $article->category;
+        $article->user;
+        $article->tags;
+        $article->images;
+        return view('front.article')->with('article', $article);
+    }
 }

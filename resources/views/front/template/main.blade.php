@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>@yield('title', 'Home') | CodeSolutions</title>
 	<link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/journal/bootstrap.css') }}">
-	
+	<link rel="stylesheet" href="{{ asset('css/general.css') }}">
 	<link rel="stylesheet" href="{{ asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 </head>
 <body>

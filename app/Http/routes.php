@@ -26,6 +26,10 @@ Route::get('categories/{name}', ['as' => 'front.search.category',
 	'uses' => 'FrontController@searchCategory'
 ]);
 
+Route::get('articles/{slug}', ['as' => 'front.view.article',
+	'uses' => 'FrontController@viewArticle'
+]);
+
 
 
 //rutas del panel de administración
